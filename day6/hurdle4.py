@@ -4,19 +4,25 @@
 # You should be able to write programs that are valid for worlds Around 4 and Hurdles 3, and ot combine them for this last hurdles race.
 # Your program should also be valid for worlds Hurdles 1, Hurdles 2 et Hurdles 3
 
+
 def turn_right():
     turn_left()
     turn_left()
     turn_left()
 def jump():
     turn_left()
-    move() 
+    while wall_on_right():
+        move()
+    turn_right()
+    move()
+    turn_right()
+
+    while front_is_clear():
+        move()
+    turn_left()
 
 while not at_goal():
-    if front_is_clear() and wall_on_right():
-        move()
-    elif wall_in_front():
+    if wall_in_front():
         jump()
-    elif front_is_clear() and right_is_clear():
-        turn_right()
+    else:
         move()
