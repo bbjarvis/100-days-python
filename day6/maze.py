@@ -8,30 +8,20 @@
 # How to use a while loop and if/elif/else statements.
 # It might be useful to know how to use the negation of a test (not in Python).
 
+
 def turn_right():
     turn_left()
     turn_left()
     turn_left()
-def clear_right():
-    while right_is_clear():
-        turn_right()
-        move()
-def right_wall():
-    while wall_on_right():
-        if wall_in_front():
-            turn_left()
-        else:
-            move()
-def clear_front():
-    while front_is_clear():
-        move()
-        turn_left()  
+
+while front_is_clear():
+    move()
+turn_left()
 while not at_goal():
     if right_is_clear():
-        clear_right()
-    elif wall_on_right():
-        right_wall()
+        turn_right()
+        move()
     elif front_is_clear():
-        clear_front()
+        move()
     else:
         turn_left()
